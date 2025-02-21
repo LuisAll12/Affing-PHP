@@ -1,0 +1,40 @@
+CREATE TABLE trackinglinks (
+    urlid INT(11) NOT NULL AUTO_INCREMENT,
+    company VARCHAR(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
+    category VARCHAR(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
+    url VARCHAR(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+    maxnumclick INT(7) DEFAULT NULL,
+    amountperclick DECIMAL(7,2) DEFAULT NULL,
+    contentinfo VARCHAR(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+    fk_userid INT(11) DEFAULT NULL,
+    PRIMARY KEY (urlid),
+    FOREIGN KEY (fk_userid) REFERENCES users(userid) ON DELETE SET NULL
+);
+
+
+CREATE TABLE url (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    some_number INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    code VARCHAR(50) NOT NULL,
+    additional_info TEXT DEFAULT NULL
+);
+
+CREATE TABLE userdata (
+    userid INT(11) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(30) COLLATE utf8mb4_general_ci NOT NULL UNIQUE,
+    password VARCHAR(255) COLLATE utf8mb4_general_ci NOT NULL,
+    FirstName VARCHAR(50) COLLATE utf8mb4_general_ci NOT NULL,
+    LastName VARCHAR(50) COLLATE utf8mb4_general_ci NOT NULL,
+    Email VARCHAR(50) COLLATE utf8mb4_general_ci NOT NULL UNIQUE,
+    Continent VARCHAR(20) COLLATE utf8mb4_general_ci NOT NULL,
+    Phone VARCHAR(20) COLLATE utf8mb4_general_ci NOT NULL,
+    BirthDate DATE NOT NULL,
+    IBAN VARCHAR(20) COLLATE utf8mb4_general_ci NOT NULL UNIQUE,
+    BIC VARCHAR(10) COLLATE utf8mb4_general_ci NOT NULL,
+    balance DECIMAL(9,2) DEFAULT NULL,
+    PRIMARY KEY (userid)
+);
