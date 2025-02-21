@@ -1,0 +1,223 @@
+:root {
+    --primary900: #9BF272; 
+    --accent700: #7ABF5A;    
+    --secondary100: #193940; 
+    --text100: #BAC8D9;
+    --darkertext20: #000000;
+}
+
+body {
+    overscroll-behavior: none;
+    margin: 0;
+    width: 100%;
+    overflow-y: visible !important;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 550;
+    background-color: #F4F4F4; /* Light background for contrast */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary100);
+    height: 75px;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.menu-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between; 
+}
+
+.menu-logo img {
+    width: 80px;
+    height: auto; /* Maintain aspect ratio */
+}
+
+.menu-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.menu-links a {
+    color: var(--text100);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.menu-links a:hover {
+    color: white;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text100);
+}
+
+.content {
+    padding: 20px 10vw;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 20px; /* Spacing between header and content */
+}
+
+.info-table {
+    background-color: white; /* Contrast with the background */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.info-content {
+    color: var(--secondary100);
+}
+
+.info-title {
+    font-size: 1.5rem; /* Slightly smaller for better hierarchy */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 12px 20px; /* Increased padding for better click area */
+    background-color: var(--accent700);
+    color: var(--darkertext20);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s; 
+}
+
+button:hover {
+    background-color: var(--primary900); /* Change on hover */
+}
+
+.footer {
+    background-color: var(--secondary100); 
+    color: var(--text100);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 50px;
+    flex-wrap: wrap; /* Allow footer sections to stack on smaller screens */
+}
+
+.footer-section {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text100);
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 8px;
+}
+
+.footer-section li a {
+    color: var(--text100);
+    text-decoration: none;
+}
+
+.footer-section li a:hover {
+    color: white; 
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .menu-links {
+        flex-direction: column; /* Stack menu links vertically */
+        position: absolute;
+        top: 75px; 
+        right: 0;
+        background-color: var(--secondary100);
+        width: 100%;
+        padding: 10px 0; 
+        z-index: 10; 
+        display: none; /* Hidden by default */
+    }
+
+    .menu-links.show {
+        display: flex; /* Show when toggled */
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .content {
+        padding: 15px 4vw; 
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 3px 1vw; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .info-image img {
+        display: none; /* Hide images on very small screens */
+    }
+    .content {
+        padding: 0; 
+    }
+}
+
+.popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #073F4D;
+    color: #ffff;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 15px;
+    display: none; 
+    z-index: 1000; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup .register {
+    background-color: #7abf50; 
+    color: white;
+}
+
+.popup .login {
+    background-color: #bac8d9; 
+    color: white;
+}
